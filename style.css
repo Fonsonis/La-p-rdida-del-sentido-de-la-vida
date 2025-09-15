@@ -1,0 +1,257 @@
+:root {
+    --bg-color: #121212;
+    --primary-text: #E0E0E0;
+    --secondary-text: #B3B3B3;
+    --accent-color: #D4AF37; /* Tono dorado */
+    --card-bg: #1E1E1E;
+    --font-main: 'Roboto', sans-serif;
+    --font-headings: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    padding-top: 60px; /* Altura del header */
+}
+
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(ellipse at bottom, #2c2c2c 0%, #121212 80%);
+}
+
+.hero-content h1 {
+    font-family: var(--font-headings);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #121212;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: #EACD65;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+.cta-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+h2 {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.libro-container, .autor-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.libro-texto, .autor-texto {
+    flex: 1;
+}
+
+.libro-texto p, .autor-texto p {
+    margin-bottom: 1rem;
+    color: var(--secondary-text);
+    max-width: 80ch;
+}
+.autor-texto h3 {
+    font-family: var(--font-headings);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.idea-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.idea-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.idea-card h3 {
+    font-family: var(--font-headings);
+    color: var(--primary-text);
+    margin-bottom: 0.5rem;
+}
+
+.idea-card p {
+    color: var(--secondary-text);
+}
+
+#contacto {
+    text-align: center;
+}
+
+.email-link {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* Animaciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        display: none; /* Simplificando para móviles, se podría añadir un menú hamburguesa con más JS */
+    }
+
+    .libro-container, .autor-container {
+        flex-direction: column;
+    }
+}
+
+.book-cover {
+    width: 250px; /* Ajusta el tamaño si lo necesitas */
+    max-width: 60%;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.book-cover:hover {
+    transform: scale(1.05);
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: center; /* Centra horizontalmente */
+    gap: 2rem; /* Espacio entre la portada y el botón */
+    margin-top: 2rem; /* Espacio superior para la sección de acciones */
+}
+
+/* Ajustes para el botón dentro de hero-actions si fuera necesario, aunque el gap ya lo controla */
+.hero-actions .cta-button {
+    margin-top: 0; /* Reiniciamos el margen superior si lo habíamos puesto antes directamente al botón */
+}
